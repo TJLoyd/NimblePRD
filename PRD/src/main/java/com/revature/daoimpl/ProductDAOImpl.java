@@ -28,7 +28,11 @@ public class ProductDAOImpl implements ProductDAO {
 		conn.close();
 	}
 
-	public Product retrieveProduct() throws SQLException {
+	public Product retrieveProduct(String pShortName) throws SQLException {
+		
+		Connection conn = cf.getConnection();
+		
+		
 		return null;
 	}
 
