@@ -17,7 +17,8 @@ public class ClientDriver {
 		WebTarget webTarget = client.target("http://localhost:8080/PRDRestService/rest/products");
 		
 		Builder postProductBuilder = webTarget.request();
-		Products p = new Products(1, "Kerbal Moon Lander", "Lander", "Space", "Rocket", "Lander for moon landing.");
+		Products p = new Products(0, "Kerbal Moon Lander", "Lander", "Space",
+				"Full", "Physical", "Lander for moon landing.", true);
 		
 		Response postProductResponse = 
 				postProductBuilder.accept(MediaType.APPLICATION_JSON)

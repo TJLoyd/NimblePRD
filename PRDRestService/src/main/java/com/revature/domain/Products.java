@@ -6,22 +6,27 @@ public class Products {
 	private String fName;
 	private String shortName;
 	private String dept;
+	private String prdType;
 	private String type;
 	private String desc;
+	private boolean isPrototype;
 	
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Products(int id, String fName, String shortName, String dept, String type, String desc) {
+	public Products(int id, String fName, String shortName,
+			String dept, String prdType, String type, String desc, boolean isPrototype) {
 		super();
 		this.id = id;
 		this.fName = fName;
 		this.shortName = shortName;
 		this.dept = dept;
+		this.prdType = prdType;
 		this.type = type;
 		this.desc = desc;
+		this.isPrototype = isPrototype;
 	}
 
 	public int getId() {
@@ -56,6 +61,14 @@ public class Products {
 		this.dept = dept;
 	}
 
+	public String getPrdType() {
+		return prdType;
+	}
+
+	public void setPrdType(String prdType) {
+		this.prdType = prdType;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -72,10 +85,18 @@ public class Products {
 		this.desc = desc;
 	}
 
+	public boolean isPrototype() {
+		return isPrototype;
+	}
+
+	public void setPrototype(boolean isPrototype) {
+		this.isPrototype = isPrototype;
+	}
+
 	@Override
 	public String toString() {
-		return "Products [id=" + id + ", fName=" + fName + ", shortName=" + shortName + ", dept=" + dept + ", type="
-				+ type + ", desc=" + desc + "]";
+		return "Products [id=" + id + ", fName=" + fName + ", shortName=" + shortName + ", dept=" + dept + ", prdType="
+				+ prdType + ", type=" + type + ", desc=" + desc + ", isPrototype=" + isPrototype + "]";
 	}
 
 }

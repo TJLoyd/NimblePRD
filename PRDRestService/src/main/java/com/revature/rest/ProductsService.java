@@ -29,7 +29,8 @@ public class ProductsService {
 	@Produces(value= {"application/json", "application/xml"})
 	public Response createProduct(Products p) throws SQLException {
 		ProductDAOImpl pdi = new ProductDAOImpl();
-		pdi.createProduct(p.getfName(), p.getShortName(), p.getDept(), p.getType(), p.getDesc());
+		pdi.createProduct(p.getfName(), p.getShortName(), p.getDept(),
+				p.getPrdType(), p.getType(), p.getDesc(), p.isPrototype());
 		return Response.status(Response.Status.OK).entity("Product " + 
 				" was added successfully.").build();
 	}
