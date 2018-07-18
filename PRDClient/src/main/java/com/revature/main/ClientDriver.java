@@ -23,6 +23,11 @@ public class ClientDriver {
 		Response postProductResponse = 
 				postProductBuilder.accept(MediaType.APPLICATION_JSON)
 				.post(Entity.entity(p, MediaType.APPLICATION_JSON));
+		
+		int statusCode = postProductResponse.getStatus();
+		System.out.println("Return with status code: " + statusCode);
+		String s = postProductResponse.readEntity(String.class);
+		System.out.println(s);
 	}
 
 }

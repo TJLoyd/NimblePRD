@@ -19,6 +19,7 @@ public class ProductsService {
 	@Path("/{product}")
 	@Produces(value= {"application/json", "application/xml"})
 	public Response getProduct(@PathParam("product") String shortName) throws SQLException {
+		System.out.println("In Service GET");
 		ProductDAOImpl pdi = new ProductDAOImpl();
 		Products p = pdi.retrieveProduct(shortName);
 		return Response.status(Response.Status.OK).entity(p).build();
@@ -28,11 +29,12 @@ public class ProductsService {
 	@Path("/")
 	@Produces(value= {"application/json", "application/xml"})
 	public Response createProduct(Products p) throws SQLException {
+		System.out.println("In Service POST");
 		ProductDAOImpl pdi = new ProductDAOImpl();
 		pdi.createProduct(p.getfName(), p.getShortName(), p.getDept(),
 				p.getPrdType(), p.getType(), p.getDesc(), p.isPrototype());
 		return Response.status(Response.Status.OK).entity("Product " + 
-				" was added successfully.").build();
+				"was added successfully.").build();
 	}
 	
 }
