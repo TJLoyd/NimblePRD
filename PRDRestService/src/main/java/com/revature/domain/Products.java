@@ -2,6 +2,7 @@ package com.revature.domain;
 
 /*
  * @author Tiffany Tran
+ * @author Nathaniel Simpson
  * ID - int, primary key
 Name - String
 Code Name - String, unique

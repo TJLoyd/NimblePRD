@@ -12,6 +12,12 @@ import javax.ws.rs.core.Response;
 import com.revature.dao.ProductsDAOImpl;
 import com.revature.domain.Products;
 
+/**
+ * 
+ * @author Nathaniel Simpson
+ * @author Tiffany Tran
+ *
+ */
 @Path(value = "products")
 public class PRDService {
 
@@ -35,8 +41,20 @@ public class PRDService {
 	@Path("/")
 	@Produces(value = { "application/json", "application/xml" })
 	public Response createProduct(Products p) {
+		//if (ProductsDAOImpl.isUniqueCodeName(p.getPrdCdName())) {
 		ProductsDAOImpl.addProduct(p);
-		return Response.status(Response.Status.OK).entity("Product " + p.getPrdName() + " was added successfully!!").build();
+		if (ProductsDAOImpl.getAllProducts().contains(p)) {
+			return Response.status(Response.Status.OK).entity("Product " + p.getPrdName() + " was added successfully!!").build();
+		}
+		//}
+		//		else {
+		//			ProductsDAOImpl.updateProduct(p);
+		//			if (ProductsDAOImpl.getAllProducts().contains(p)) {
+		//				return Response.status(Response.Status.OK).entity("Product " + p.getPrdName() + " was successfully updated!").build();
+		//			}
+		//		}
+
+		return Response.status(Response.Status.OK).entity("Product already exists in database.").build();
 	}
 
 }
