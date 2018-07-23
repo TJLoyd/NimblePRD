@@ -52,6 +52,14 @@ public class ProductsDAOImpl {
 		}
 		return null;
 	}
+	
+	public static List<String> getAllCdNames() {
+		List<String> cdNames = new ArrayList<String>();
+		for (Products p : prdList) {
+			cdNames.add(p.getPrdCdName());
+		}
+		return cdNames;
+	}
 
 	public static void addProduct(Products p) {
 		if (isUniqueCodeName(p.getPrdCdName())) {

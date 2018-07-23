@@ -1,6 +1,7 @@
 package com.revature.rest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -36,6 +37,14 @@ public class PRDService {
 		Products p = ProductsDAOImpl.getInfoByCdName(product);
 		return Response.status(Response.Status.OK).entity(p).build();
 	}
+	
+	@GET
+	@Path("/codename")
+	@Produces(value = { "application/json", "application/xml" })
+	public Response getCdNames() {
+		List<String> l = ProductsDAOImpl.getAllCdNames();
+		return Response.status(Response.Status.OK).entity(l).build();
+	}
 
 	@POST
 	@Path("/")
@@ -56,5 +65,7 @@ public class PRDService {
 
 		return Response.status(Response.Status.OK).entity("Product already exists in database.").build();
 	}
+	
+	
 
 }
